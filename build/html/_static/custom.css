@@ -1,0 +1,20 @@
+html.light {
+    --sy-c-background: #f1f1f1;
+    --sy-c-text: #212529;
+    --sy-c-foot-background: #f1f1f1;
+}
+
+.sy-head-actions button {
+	display: none;
+}
+
+html[data-accent-color="green"] {
+    --accent-9: #132a13;
+    --accent-11: #132a13;
+    --accent-3: #132a13;
+    --accent-2: #132a13;
+}
+
+.sy-head-blur {
+    background-color: #f1f1f1;
+}

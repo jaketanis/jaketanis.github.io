@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="green" data-content_root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The “unbreakable” cipher - Jake Tanis</title><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="What is technical writing?" href="what_is_tech_writing.html" /><link rel="prev" title="Blog" href="posts.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"light");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e1a1ceaf" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=2ceb65ce" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=acd2cd6f" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --sy-f-heading: "Ubuntu", var(--sy-f-sys), sans-serif;
+    --sy-f-text: "Ubuntu", var(--sy-f-sys), sans-serif;
+}
+</style>
+    
+  <meta property="og:type" content="website"/><meta property="og:title" content="The “unbreakable” cipher"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="../index.html">
+      
+      
+      <strong>Jake Tanis</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../writing/writing.html">Writing</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://ennoia.readthedocs.io/en/latest/">Ennoia documentation</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://jaketanis.github.io/bss_api_docs/#/paths/~1api/get">Bible Super Search API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writing/setting_up_a_virtual_environment.html">Setting up a virtual environment in Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writing/creating_a_flare_notification.html">Creating a MadCap Flare Build Notification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../code/code.html">Code</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/jaketanis/ennoia">Ennoia</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/jaketanis/cipher">Vigenère cipher</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/jaketanis/space_to_underscore">Space to underscore converter</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="posts.html">Blog</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The “unbreakable” cipher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what_is_tech_writing.html">What is technical writing?</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
+<li><a class="reference internal" href="#creating-the-vignere-cipher-in-python">Creating the Vign&#233;re cipher in Python</a></li>
+<li><a class="reference internal" href="#final-remarks">Final remarks</a></li>
+</ul>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">Jake Tanis</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="posts.html"><span itemprop="name">Blog</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="2" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">The “unbreakable” cipher</strong>
+        <meta itemprop="position" content="3" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="relative min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+  <article class="yue" role="main">
+          <section id="the-unbreakable-cipher">
+<span id="cipher"></span><h1>The “unbreakable” cipher<a class="headerlink" href="#the-unbreakable-cipher" title="Link to this heading">#</a></h1>
+<p><strong>February 8th, 2026</strong></p>
+<p>Lewis Carroll is often known as the author of the childrens story
+“Through the Looking Glass”, but Carroll was also a prolific
+mathematician. Growing up, he was always creating puzzles and logic
+games, some of which are represented in the stories he wrote. In 1868,
+Carroll published a study about an invention of his called <a class="reference external" href="https://en.wikipedia.org/wiki/The_Alphabet_Cipher">“The
+Alphabet Cipher”</a>.
+This type of cipher is known as a Vignére cipher, which Caroll described
+as “unbreakable”.</p>
+<p>The Vignére cipher encrypts a message based on a key. Each letter of the
+message changes based on the position of the letters within the key. The
+letters in the message shift based on the key’s corresponding letters’
+position in the alphabet. For example:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">message</span></code> is the message to encrypt and <code class="docutils literal notranslate"><span class="pre">key</span></code> is the key. Since
+<code class="docutils literal notranslate"><span class="pre">k</span></code> is the 10th letter in the alphabet (if <code class="docutils literal notranslate"><span class="pre">a</span></code> is considered as
+0), and the letter <code class="docutils literal notranslate"><span class="pre">m</span></code> is the 12th letter, the first letter of the
+encrypted message is the 22nd letter, which is <code class="docutils literal notranslate"><span class="pre">w</span></code>. The fully
+encrypted message is <code class="docutils literal notranslate"><span class="pre">wiqceeo</span></code>.</p>
+</div></blockquote>
+<p>What was once seen as unbreakable to Carroll is actually quite doable
+for us with Python. I was able to create a script that two people could
+use to encrypt and decrypt messages with the Vignére cipher in a
+terminal. This was honestly an exercise to practice the lessons taught
+in the first project in <a class="reference external" href="https://www.freecodecamp.org/learn/scientific-computing-with-python/#learn-list-comprehension-by-building-a-case-converter-program">Scientific Computing with
+Python</a>
+by freeCodeCamp. After completing that project, I wanted to test what I
+learned; so, I created my own script based on what I learned in the
+project tutorial.</p>
+<p>It took a lot longer than I thought, but the experience was valuable.
+I’m going to walk through how I created this script, what roadblocks I
+ran into, and what I learned in the process.</p>
+<section id="creating-the-vignere-cipher-in-python">
+<h2>Creating the Vignére cipher in Python<a class="headerlink" href="#creating-the-vignere-cipher-in-python" title="Link to this heading">#</a></h2>
+<p>When I created this script, I intended to make it so that it could be
+easily used. I imagined two kids sending secret messages to eachother
+through text or email, using their own computer to run this script that
+decrypts and encrypts the messages. This would require some user inputs,
+which was different from the project tutorial I went through. But I knew
+that the hardest part of the script would be to get the logic correct.
+So, I spent most of my time figuring that out.</p>
+<p>To create the logic, I first defined what I needed to create the logic
+with. This included the alphabet, a key, and a message. The function
+would receive the message and the key, and then determine the new
+message based on that information. This looked something like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">new_message</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span><span data-line="2"><span class="n">alphabet</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxzy&#39;</span>
+</span><span data-line="3"><span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;Hello!&#39;</span>
+</span><span data-line="4"><span class="n">key</span> <span class="o">=</span> <span class="n">fanta</span>
+</span><span data-line="5">
+</span><span data-line="6"><span class="k">def</span><span class="w"> </span><span class="nf">converter</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+</span></pre></div>
+</div>
+<p>This cipher does not take into account for capital letters, so I needed
+to convert the message string into all lower case. This is done through
+the <code class="docutils literal notranslate"><span class="pre">.lower()</span></code> function.</p>
+<p>My next objective was to find the position of the letter in the
+alphabet. I also wanted to track the position of the letter in the
+message itself. Eventually, I realized I didn’t need to track the
+position of the letter in the message to accomplish my goals, so I ended
+up removing this later.</p>
+<p>To track the position of the letter in the alphabet, I set up a <code class="docutils literal notranslate"><span class="pre">for</span></code>
+loop. This also served as the bedrock for further logic.</p>
+<p>The remaining tasks for me to do in the loop were finding the letters of
+the key and their position in the alphabet.</p>
+<p>After that, I needed to find the position of the letters of the
+encrypted message within the alphabet. To do this, I addeded together
+the positions of the message letters in the alphabet with the positions
+of the key letters in the alphabet. The final version looked likes this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="k">def</span><span class="w"> </span><span class="nf">converter</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+</span><span data-line="2">
+</span><span data-line="3">    <span class="n">lower_message</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</span><span data-line="4">    <span class="n">key_index</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span data-line="5">    <span class="n">final_message</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span><span data-line="6">
+</span><span data-line="7">    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">lower_message</span><span class="p">:</span>
+</span><span data-line="8">        <span class="k">if</span> <span class="n">char</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span> <span class="c1"># used to convert</span>
+</span><span data-line="9">            <span class="n">alpha_index</span> <span class="o">=</span> <span class="n">alphabet</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+</span><span data-line="10">            <span class="n">key_char</span> <span class="o">=</span> <span class="n">key</span><span class="p">[</span><span class="n">key_index</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">key</span><span class="p">)]</span> <span class="c1"># modulo of key length is used to account for wrap-around</span>
+</span><span data-line="11">            <span class="n">key_index</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span data-line="12">
+</span><span data-line="13">            <span class="n">key_alpha_index</span> <span class="o">=</span> <span class="n">alphabet</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">key_char</span><span class="p">)</span>
+</span><span data-line="14">            <span class="n">new_index</span> <span class="o">=</span> <span class="p">(</span><span class="n">alpha_index</span> <span class="o">+</span> <span class="n">key_alpha_index</span><span class="o">*</span><span class="n">direction</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">alphabet</span><span class="p">)</span> <span class="c1"># modulo of alphabet length is to account for wrap-around</span>
+</span><span data-line="15">
+</span><span data-line="16">            <span class="n">new_char</span> <span class="o">=</span> <span class="n">alphabet</span><span class="p">[</span><span class="n">new_index</span><span class="p">]</span>
+</span><span data-line="17">            <span class="n">final_message</span> <span class="o">+=</span> <span class="n">new_char</span>
+</span></pre></div>
+</div>
+<p>There are a couple things that were hard for me to understand in the
+above code. The first thing was the use of the modulo operator (<code class="docutils literal notranslate"><span class="pre">%</span></code>).
+This operator returns the remainder of the division of two numbers. I
+learned in freeCodeCamp that it was used to account for wrap-around of a
+string when trying to find a character or an index in that string. What
+I had a hard time understanding was that when a number is divided by a
+number larger than itself, the remainder is 0. I guess I need brush up
+on math. But, this is useful to know when iterating through a string
+that isn’t the string used by the for loop (i.e. <code class="docutils literal notranslate"><span class="pre">lower_message</span></code> in
+<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">char</span> <span class="pre">in</span> <span class="pre">lower_message</span></code>).</p>
+<p>The other hard thing was understanding how to do what I just alluded to:
+work with strings that are not the string used in the for loop. We
+needed to work with the <code class="docutils literal notranslate"><span class="pre">key</span></code> string to find the letter in the same
+position as the message, but if the key and message had different
+character counts, we needed to wrap the key since we were iterating
+through each letter of the message in the for loop. I was trying to
+figure out the index of the key based on the for loop iteration, but I
+couldn’t figure that out. So I ended up seeing how I did it in the
+freeCodeCamp project, which ended being a counter.</p>
+<p>After I figured out that logic, what was left was to combine the
+positions of the message character and the key character in the alphabet
+together, and then we have our encrypted letter. After that, we add that
+letter to a string. We keep doing that until all of the letters in the
+message are encrypted.</p>
+<p>The final code looks like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="c1"># global variables</span>
+</span><span data-line="2"><span class="n">alphabet</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span>
+</span><span data-line="3">
+</span><span data-line="4"><span class="n">final_message</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span><span data-line="5">
+</span><span data-line="6"><span class="c1"># inputs</span>
+</span><span data-line="7"><span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Encrypt or decrypt? </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span data-line="8">
+</span><span data-line="9"><span class="n">key</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">What is the key? </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span data-line="10">
+</span><span data-line="11"><span class="n">message</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Message: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span data-line="12">
+</span><span data-line="13"><span class="c1"># functions</span>
+</span><span data-line="14"><span class="k">def</span><span class="w"> </span><span class="nf">converter</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+</span><span data-line="15">
+</span><span data-line="16">    <span class="n">lower_message</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</span><span data-line="17">    <span class="n">key_index</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span data-line="18">    <span class="n">final_message</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span><span data-line="19">
+</span><span data-line="20">    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">lower_message</span><span class="p">:</span>
+</span><span data-line="21">        <span class="k">if</span> <span class="n">char</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span> <span class="c1"># used to convert</span>
+</span><span data-line="22">            <span class="n">alpha_index</span> <span class="o">=</span> <span class="n">alphabet</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+</span><span data-line="23">            <span class="n">key_char</span> <span class="o">=</span> <span class="n">key</span><span class="p">[</span><span class="n">key_index</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">key</span><span class="p">)]</span> <span class="c1"># modulo of key length is used to account for wrap-around</span>
+</span><span data-line="24">            <span class="n">key_index</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span data-line="25">
+</span><span data-line="26">            <span class="n">key_alpha_index</span> <span class="o">=</span> <span class="n">alphabet</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">key_char</span><span class="p">)</span>
+</span><span data-line="27">            <span class="n">new_index</span> <span class="o">=</span> <span class="p">(</span><span class="n">alpha_index</span> <span class="o">+</span> <span class="n">key_alpha_index</span><span class="o">*</span><span class="n">direction</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">alphabet</span><span class="p">)</span> <span class="c1"># modulo of alphabet length is to account for wrap-around</span>
+</span><span data-line="28">
+</span><span data-line="29">            <span class="n">new_char</span> <span class="o">=</span> <span class="n">alphabet</span><span class="p">[</span><span class="n">new_index</span><span class="p">]</span>
+</span><span data-line="30">            <span class="n">final_message</span> <span class="o">+=</span> <span class="n">new_char</span>
+</span><span data-line="31">        <span class="k">else</span><span class="p">:</span> <span class="c1"># passes on symbols</span>
+</span><span data-line="32">            <span class="n">final_message</span> <span class="o">+=</span> <span class="n">char</span>
+</span><span data-line="33">    <span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="n">final_message</span><span class="p">)</span>
+</span><span data-line="34">
+</span><span data-line="35"><span class="k">def</span><span class="w"> </span><span class="nf">encrypt</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+</span><span data-line="36">    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Encrypted message: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span data-line="37">    <span class="k">return</span> <span class="n">converter</span><span class="p">(</span><span class="n">message</span><span class="p">,</span><span class="n">key</span><span class="p">)</span>
+</span><span data-line="38">
+</span><span data-line="39"><span class="k">def</span><span class="w"> </span><span class="nf">decrypt</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+</span><span data-line="40">    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Decrypted message: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span data-line="41">    <span class="k">return</span> <span class="n">converter</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span><span data-line="42">
+</span><span data-line="43"><span class="c1"># outputs</span>
+</span><span data-line="44"><span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;encrypt&quot;</span><span class="p">:</span>
+</span><span data-line="45">    <span class="n">encrypt</span><span class="p">(</span><span class="n">message</span><span class="p">,</span><span class="n">key</span><span class="p">)</span>
+</span><span data-line="46">
+</span><span data-line="47"><span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;decrypt&quot;</span><span class="p">:</span>
+</span><span data-line="48">    <span class="n">decrypt</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>Other things that I included were a direction parameter for whether we
+wanted to decrypt messages in the <code class="docutils literal notranslate"><span class="pre">converter</span></code> function. In <code class="docutils literal notranslate"><span class="pre">encrypt</span></code>
+or <code class="docutils literal notranslate"><span class="pre">decrypt</span></code>, they determine which direction the converter function
+goes when figuring out the final position of the new letter. Encryption
+or decryption is determined by user inputs, as well as the key and
+message.</p>
+<p>The terminal output looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1">Encrypt or decrypt?
+</span><span data-line="2">encrypt
+</span><span data-line="3">
+</span><span data-line="4">What is the key?
+</span><span data-line="5">dog
+</span><span data-line="6">
+</span><span data-line="7">Message:
+</span><span data-line="8">do I want a dog?
+</span><span data-line="9">Encrypted message:
+</span><span data-line="10">
+</span><span data-line="11">gc o zotw o jru?
+</span></pre></div>
+</div>
+</section>
+<section id="final-remarks">
+<h2>Final remarks<a class="headerlink" href="#final-remarks" title="Link to this heading">#</a></h2>
+<p>There are other things in this script that I could keep talking about,
+but I mentioned my main takeaways. Overall, I really enjoyed doing this
+and was pretty challenged by it. I didn’t think I would be. I’m glad I
+was surprised - it’s the reason I am doing this. I want to grow, learn,
+and stretch my capabilities when it comes to programming. Even if that
+means doing things I assume are easy, because I may very well be
+assuming I know something when I actually don’t.</p>
+</section>
+</section>
+
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="posts.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>Previous</span><div class="title">Blog</div></div>
+    </a>
+  </div><div class="navigation-next">
+    <a href="what_is_tech_writing.html">
+      <div class="page-info">
+        <span>Next</span>
+        <div class="title">What is technical writing?</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>Copyright &#169 Jake Tanis </p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials">
+  <a href="https://github.com/jaketanis" aria-label="GitHub">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </a>
+  <a href="https://www.linkedin.com/in/jacobtanis/" aria-label="LinkedIn">
+    <iconify-icon icon="simple-icons:linkedin"></iconify-icon>
+  </a></div>
+    </div>
+  </div>
+</footer>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../_static/shibuya.js?v=50760d75"></script></body>
+</html>
