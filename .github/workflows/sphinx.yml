@@ -25,6 +25,8 @@ jobs:
   # a job that builds the html and then deploys the built html
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
