@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="green" data-content_root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Creating a MadCap Flare Build Notification - Jake Tanis</title><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Code" href="../code/code.html" /><link rel="prev" title="Setting up a virtual environment in Linux" href="setting_up_a_virtual_environment.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"light");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e1a1ceaf" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=2ceb65ce" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=acd2cd6f" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --sy-f-heading: "Ubuntu", var(--sy-f-sys), sans-serif;
+    --sy-f-text: "Ubuntu", var(--sy-f-sys), sans-serif;
+}
+</style>
+    
+  <meta property="og:type" content="website"/><meta property="og:title" content="Creating a MadCap Flare Build Notification"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="../index.html">
+      
+      
+      <strong>Jake Tanis</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="writing.html">Writing</a><ul class="current">
+<li class="toctree-l2"><a class="reference external" href="https://ennoia.readthedocs.io/en/latest/">Ennoia documentation</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://jaketanis.github.io/bss_api_docs/#/paths/~1api/get">Bible Super Search API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setting_up_a_virtual_environment.html">Setting up a virtual environment in Linux</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Creating a MadCap Flare Build Notification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../code/code.html">Code</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/jaketanis/ennoia">Ennoia</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/jaketanis/cipher">Vigenère cipher</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/jaketanis/space_to_underscore">Space to underscore converter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../blog_posts/posts.html">Blog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../blog_posts/cipher.html">The “unbreakable” cipher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blog_posts/what_is_tech_writing.html">What is technical writing?</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a><ul>
+<li><a class="reference internal" href="#creating-a-batch-file">Creating a Batch File</a></li>
+<li><a class="reference internal" href="#running-the-batch-file-in-flare">Running the Batch File in Flare</a></li>
+</ul>
+</li>
+</ul>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">Jake Tanis</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="writing.html"><span itemprop="name">Writing</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="2" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Creating a MadCap Flare Build Notification</strong>
+        <meta itemprop="position" content="3" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="relative min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+  <article class="yue" role="main">
+          <section id="creating-a-madcap-flare-build-notification">
+<span id="creating-a-flare-notification"></span><h1>Creating a MadCap Flare Build Notification<a class="headerlink" href="#creating-a-madcap-flare-build-notification" title="Link to this heading">#</a></h1>
+<p>A toast notification edited to fit as a MadCap Flare Build Notification.</p>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><strong>Important:</strong> Python needs to be installed for this script to work
+in MadCap Flare.</p>
+</div></blockquote>
+<p>This script uses the module <strong>win10toast</strong>. To install:</p>
+<ol class="arabic simple">
+<li><p>Open your command prompt.</p></li>
+<li><p>Type <strong>pip install win10toast</strong>.</p></li>
+<li><p>Press <strong>Enter</strong>.</p></li>
+</ol>
+<p>After the install is complete, move on to the next section.</p>
+<section id="creating-a-batch-file">
+<h3>Creating a Batch File<a class="headerlink" href="#creating-a-batch-file" title="Link to this heading">#</a></h3>
+<p>To implement the notification, users can run a batch file. Complete the
+steps in the next section to create a batch file that runs this
+notification.</p>
+<p><strong>To create the batch file:</strong></p>
+<ol class="arabic">
+<li><p>Download the build notification python script.</p></li>
+<li><p>Copy the path of the script.</p></li>
+<li><p>Open a text-editor.</p>
+<blockquote>
+<div><p><strong>Example:</strong> Visual Studio Code, Notepad++, etc.</p>
+</div></blockquote>
+</li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">&#64;echo</span> <span class="pre">off</span></code> on one line, and <code class="docutils literal notranslate"><span class="pre">python</span></code> on the next line.</p></li>
+<li><p>Paste the path of the python script in front of <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="nd">@echo</span> <span class="n">off</span>
+</span><span data-line="2"><span class="n">python</span> <span class="n">C</span><span class="p">:</span><span class="n">path</span>\<span class="n">to</span>\<span class="n">python</span>\<span class="n">file</span>
+</span></pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Save and name the batch file.</p></li>
+</ol>
+</section>
+<section id="running-the-batch-file-in-flare">
+<h3>Running the Batch File in Flare<a class="headerlink" href="#running-the-batch-file-in-flare" title="Link to this heading">#</a></h3>
+<p>Once the batch file is complete, users can use it in MadCap Flare to run
+the build notification.</p>
+<p><strong>To run the batch file:</strong></p>
+<ol class="arabic">
+<li><p>Open a MadCap Flare project.</p></li>
+<li><p>Open a Target.</p></li>
+<li><p>Select the <strong>Build Events</strong> tab on the left hand menu of the target.</p></li>
+<li><p>In the <strong>Post-Build Event Command</strong> section, copy and paste the
+location of the batch file.</p>
+<blockquote>
+<div><p><strong>Example:</strong>
+“D:<a href="#id1"><span class="problematic" id="id2">:raw-latex:`\path`</span></a><a href="#id3"><span class="problematic" id="id4">:raw-latex:`\to`</span></a><a href="#id5"><span class="problematic" id="id6">:raw-latex:`\batch`</span></a><a href="#id7"><span class="problematic" id="id8">:raw-latex:`\file`</span></a>”</p>
+</div></blockquote>
+</li>
+<li><p>Save your changes.</p></li>
+<li><p>Build the target.</p></li>
+</ol>
+<p>After the build finishes, a notification should pop-up informing you
+that the build is complete.</p>
+</section>
+</section>
+</section>
+
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="setting_up_a_virtual_environment.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>Previous</span><div class="title">Setting up a virtual environment in Linux</div></div>
+    </a>
+  </div><div class="navigation-next">
+    <a href="../code/code.html">
+      <div class="page-info">
+        <span>Next</span>
+        <div class="title">Code</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>Copyright &#169 Jake Tanis </p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials">
+  <a href="https://github.com/jaketanis" aria-label="GitHub">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </a>
+  <a href="https://www.linkedin.com/in/jacobtanis/" aria-label="LinkedIn">
+    <iconify-icon icon="simple-icons:linkedin"></iconify-icon>
+  </a></div>
+    </div>
+  </div>
+</footer>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../_static/shibuya.js?v=50760d75"></script></body>
+</html>
