@@ -12,7 +12,7 @@ I enjoy writing and creating tools that serve humans.
 
 Work
 ----
-I work as a Technical Writer at OPEX, writing documentation for software that helps machines organize warehouses.
+I work as a Technical Writer at OPEX, writing documentation about warehouse robots and software.
 
 I am skilled in a variety of documentation tools and processes such as docs-as-code, Sphinx, reStructured text, MadCap Flare, Markdown, Open API documentation, Read the Docs, HTML, and CSS. I am also enjoy working with programming tools such as Flask, Python, Postman, cURL, Powershell, Git, SVN, and IIS.
 
