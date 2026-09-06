@@ -1,4 +1,4 @@
-name: Deploy Sphinx to GitHub Pages
+name: "Deploy Sphinx to GitHub Pages"
 
 on:
   # runs when pushed to main
