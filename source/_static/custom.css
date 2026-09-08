@@ -18,3 +18,7 @@ html[data-accent-color="green"] {
 .sy-head-blur {
     background-color: #f1f1f1;
 }
+
+.yue a.headerlink {
+    display: none;
+}
