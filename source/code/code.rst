@@ -16,7 +16,7 @@ Various coding projects and scripts.
     .. grid-item-card:: Vigenère cipher
         :link: https://github.com/jaketanis/cipher
 
-        A Python script that encrypts and decrypts messages through a Vigenère cipher. To see how I made this script, see 
+        A Python script that encrypts and decrypts messages through a Vigenère cipher.
 
     .. grid-item-card:: Space to underscore converter
         :link: https://github.com/jaketanis/space_to_underscore
