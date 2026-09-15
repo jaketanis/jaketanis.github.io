@@ -16,7 +16,7 @@ Maintained software documentation for the OASIS and SAND products, both financia
 
 **Technical Writer Intern, ARGO Data Resource Corporation, 2022**
 
-Organized marketing documents and their file locations for the Director of Market Content. Reviewed and updated user guides and release notes for various products. 'Watch my internship experience <https://www.youtube.com/watch?v=ybADKTeaE-g&source_ve_path=MTc4NDI0>`__.
+Organized marketing documents and their file locations for the Director of Market Content. Reviewed and updated user guides and release notes for various products. `Watch my internship experience <https://www.youtube.com/watch?v=ybADKTeaE-g&source_ve_path=MTc4NDI0>`__.
 
 Skills
 ------
