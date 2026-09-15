@@ -32,4 +32,4 @@ My primary contact is my email at jaketanis (at) proton (dot) me.
    writing/writing
    code/code
    blog_posts/posts
-   resume/resume
+   resume
