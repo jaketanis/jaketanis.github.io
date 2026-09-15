@@ -17,7 +17,9 @@ I work as a Technical Writer at `OPEX Corporation <https://www.opex.com/>`__, wr
 
 I am skilled in a variety of documentation tools and processes such as docs-as-code, Sphinx, reStructured text, MadCap Flare, Markdown, Open API documentation, Read the Docs, HTML, and CSS. I also enjoy working with programming tools such as Flask, Python, Postman, cURL, Powershell, Git, SVN, and IIS.
 
-This site includes writing and projects related to technical writing and programming.
+This site includes writing and projects related to technical writing and programming. 
+
+To see my work history, see my :doc:`resume`.
 
 Contact
 -------
