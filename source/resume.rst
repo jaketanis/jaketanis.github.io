@@ -7,11 +7,11 @@ Experience
 
 **Technical Writer, OPEX Corporation, 2024–Present**
 
-Software and hardware documentation for warehouse robotics. Wrote scripts for automation. 
+Wrote software and hardware documentation for warehouse robotics. Wrote scripts for automation. 
 
 **Technical Communicator I, ARGO Data Resource Corporation, 2022–2024**
 
-Software user documentation for software products that prevent financial fraud.
+Wrote software user documentation for software products that prevent financial fraud.
 
 **Technical Writer Intern, ARGO Data Resource Corporation, 2022**
 
