@@ -1,17 +1,12 @@
 # Configuration file for the Sphinx documentation builder.
-#
-# For the full list of built-in configuration values, see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-# -- Project information -----------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+# Project information
 
 project = 'Jake Tanis'
 copyright = 'Copyright &#169 Jake Tanis '
 release = '1.0.0'
 
-# -- General configuration ---------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
+# General configuration
 
 extensions = [
     'sphinx_design',
@@ -20,9 +15,9 @@ extensions = [
 templates_path = ['_templates']
 exclude_patterns = []
 
+# Latex configuration
 
-# -- Options for HTML output -------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
+# HTML configuration
 
 html_theme = 'shibuya'
 html_theme_options = {

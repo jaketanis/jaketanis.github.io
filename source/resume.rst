@@ -5,13 +5,13 @@ Resume
 Experience
 ----------
 
-**Technical Writer, OPEX Corporation, 2024–Present**
+**Technical Writer, OPEX Corporation, 2024 – Present**
 
-Wrote software and hardware documentation for warehouse robotics. Wrote scripts for automation. 
+Wrote software and hardware documentation for warehouse robotics. Pioneered online documentation hosting. Wrote scripts for automation. 
 
-**Technical Communicator I, ARGO Data Resource Corporation, 2022–2024**
+**Technical Communicator I, ARGO Data Resource Corporation, 2022 – 2024**
 
-Wrote software user documentation for software products that prevent financial fraud.
+Wrote software user documentation for software products that prevent financial fraud. Redesigned online documentation styles.
 
 **Technical Writer Intern, ARGO Data Resource Corporation, 2022**
 
@@ -20,19 +20,19 @@ Wrote software user documentation for software products that prevent financial f
 Skills
 ------
 
-**Documentation**–Software user documentation, release notes, API documentation, and hardware documentation
+**Documentation** – Software user documentation, release notes, API documentation, and hardware documentation
 
-**Tools**–docs-as-code, Git, SVN, Sphinx, reStructured text, MadCap Flare, Markdown, Open API documentation, Read the Docs, HTML, and CSS
+**Tools** – docs-as-code, Git, SVN, Sphinx, reStructured text, MadCap Flare, Markdown, Open API documentation, Read the Docs, HTML, and CSS
 
-**Editing**–Structural editing, line editing, copy editing (Chicago Manual of Style, Microsoft Writing Style, Global English Style Guide)
+**Editing** – Structural editing, line editing, copy editing (Chicago Manual of Style, Microsoft Writing Style, Global English Style Guide)
 
-**Programming**–Flask, Python, Postman, cURL, Powershell, and IIS
+**Programming** – Flask, Python, Postman, cURL, Powershell, and IIS
 
 Education
 ---------
 
-**MA, Professional and Technical Communication**–University of North Texas, 2022
+**MA, Professional and Technical Communication** – University of North Texas, 2022
 
-**BSc, Animal Science**–Texas A&M University, 2020
+**BSc, Animal Science** – Texas A&M University, 2020
 
 
