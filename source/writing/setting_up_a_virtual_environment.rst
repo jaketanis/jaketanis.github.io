@@ -14,9 +14,7 @@ What is a virtual environment?
 A virtual environment allows for configuring a project to specific
 versions of Python and modules without affecting your computer. Instead
 of installing the necessary software on your computer to run a project,
-you can instead use a virtual environment to contain the software. This
-prevents dependency issues when trying to run projects that were not
-created on your computer. For more information, see
+you can instead use a virtual environment to contain the software. This allows you to run multiple Python programs with differing dependencies on one computer. For more information, see
 https://docs.python.org/3/library/venv.html.
 
 Removing a previous virtual environment on your computer
