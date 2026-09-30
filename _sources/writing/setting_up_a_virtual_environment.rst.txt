@@ -21,9 +21,7 @@ Removing a previous virtual environment on your computer
 --------------------------------------------------------
 
 Sometimes you might receive a project that already has a virtual
-environment. This usually occurs when the original project owner forgets
-to not include the virtual environment in their source control. In this
-situation, to setup a virtual environment on your computer, you need to
+environment. In this situation, to setup a virtual environment on your computer, you need to
 first remove the previous virtual environment.
 
    **Note:** The following steps are for Linux based computers that use
